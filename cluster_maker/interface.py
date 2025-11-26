@@ -15,7 +15,7 @@ from .preprocessing import select_features, standardise_features
 from .algorithms import kmeans, sklearn_kmeans
 from .evaluation import compute_inertia, elbow_curve, silhouette_score_sklearn
 from .plotting_clustered import plot_clusters_2d, plot_elbow
-from .data_exporter import export_to_csv
+from .data_exporter import export_summary
 
 
 def run_clustering(
@@ -106,7 +106,7 @@ def run_clustering(
 
     # Export if requested
     if output_path is not None:
-        export_to_csv(df, output_path, delimiter=",", include_index=False)
+        export_summary(df, output_path, delimiter=",", include_index=False)
 
     # Plot clusters (2D)
     fig_cluster, _ = plot_clusters_2d(X, labels, centroids=centroids, title="Cluster plot")
